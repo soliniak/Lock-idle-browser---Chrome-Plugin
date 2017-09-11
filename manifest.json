@@ -1,0 +1,29 @@
+{
+  "manifest_version": 2,
+ 
+  "name": "TabLock",
+  "description": "TabLock.",
+  "version": "1.0",
+  "permissions": [
+    "tabs", "http://*/", "https://*/"
+  ],
+  "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "css": ["css/style.css"],
+        "js": ["js/keyListener.js"]
+      }
+  ],
+  "background": {
+    "persistent": false,
+    "scripts": ["js/background.js"]
+  },
+  "browser_action": {
+    "default_icon": "images/menu.png",
+    "default_popup": "menu.html",
+    "default_title": "Lock tabs"
+  },
+   "web_accessible_resources": [
+    "js/lock.html"
+  ]
+}
